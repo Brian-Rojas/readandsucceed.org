@@ -1,0 +1,50 @@
+{% extends "base.html" %} 
+{% block content %}
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title"> <a href="{% url 'index' %}" class="main-header">Book Information</a></span>
+            </div>
+        </header>
+        <main class="mdl-layout__content">
+            <div class="mld-grid page-max-width">
+                <div class="mdl-cell mdl-cell--12-col mdl-card ">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Book</h2>
+                        <div class="mdl-layout-spacer"></div>
+                        <a href="{% url 'checkOut' item.id %}" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--accent">Check Out</a>
+                        <a href="{% url 'checkIn' item.id %}" class="mdl-button  mdl-js-ripple-effect mdl-js-button mdl-button--accent">Check In</a>
+                    </div>
+                    <div class="mdl-card info-size  mdl-cell mdl-cell--12-col mdl-shadow--2dp">
+                        <div class="mdl-card__title mdl-card--border">
+                            <h2 id="mdl-card__title-text" class="mdl-card__title-text ">{{ item.title|capfirst }}</h2>
+                            <div class="mdl-layout-spacer"></div>
+                            <span class=" mdl-chip--contact">                               
+                          <span class="mdl-chip mdl-chip--contact">
+                            {% if item.amount <= 10 %}|
+                                <span class="mdl-chip__contact  mdl-color--red mdl-color-text--white">{{ item.amount }}</span> {% else %}
+                            <span class="mdl-chip__contact  mdl-color--green mdl-color-text--white">{{ item.amount }}</span> {% endif %}
+                            <span class="mdl-chip__text">In Stock</span>
+                        </div>
+                        <div class="mdl-card__supporting-text ">
+                            <p>{{ item.description }}</p>
+                        </div>
+                    </div>
+                    <button class="mdl-button mdl-js-button mdl-button--colored " onclick="goBack()">Go Back</button>
+                </div>
+            </div>
+        </main>
+        <footer class="footer mdl-mini-footer">
+            <div class="mdl-mini-footer--left-section">
+                <ul class="mdl-mini-footer--link-list">
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Privacy and Terms</a></li>
+                    <li><a href="#">User Agreement</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+</body>
+{% endblock content %}

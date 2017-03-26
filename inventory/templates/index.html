@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+
+                <span class="mdl-layout-title"> <a href="{% url 'index' %}" class="main-header">Inventory Database</a></span>
+
+                <!-- Displayed on Computer and Tablet -->
+                <!-- Search -->
+                <div class="mdh-expandable-search mdl-cell--hide-phone">
+                    <i class="material-icons">search</i>
+                    <form id="searchPostion" method="get" action="">
+                        <input name="q" type="text" id="search" placeholder="Search">
+                    </form>
+                </div>
+
+                <!-- Displayed on mobile -->
+                <div class="mdl-layout-spacer mdl-cell--hide-tablet mdl-cell--hide-desktop"></div>
+                <!-- Search button -->
+                <button class="mdh-toggle-search mdl-button mdl-js-button mdl-button--icon mdl-cell--hide-tablet mdl-cell--hide-desktop">
+                    <i class="material-icons">search</i>
+                </button>
+                {% if user.is_authenticated %}
+                <div class="align-buttons">
+                    <span class="mdl-layout-title" id="user-color"> Hello {{ user.username }}</span> <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{% url 'logout' %}">Log Out</a>
+                </div>
+                {% else %}
+                <div class="align-buttons">
+                    <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{% url 'login' %}">Log In</a>
+                </div>
+                {% endif %}
+
+
+            </div>
+        </header>
+
+        <main class="mdl-layout__content">
+            <div class="mld-grid page-max-width">
+
+                <div class="mdl-grid ">
+                    <div class="mdl-cell mdl-cell--6-col ">
+                        <h2 class="mdl-card__title-text ">Books</h2>
+                    </div>
+                    <div class=" mdl-cell mdl-cell--6-col ">
+                        <div class="align-button">
+                            <a href="{% url 'lowBookList' %} " class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--accent ">Low Book list</a>
+                            <a href="{% url 'index' %} " class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--accent ">Book list</a>
+                            <a href="{% url 'add' %}" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--accent "><i class="material-icons ">add</i>Add Book</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mdl-cell mdl-cell--12-col">
+
+                    <table id="datatable" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                        <thead>
+                            <tr>
+                                <th class="mdl-data-table__cell--non-numeric">Book Name</th>
+                                <th>Barcode</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <th class="mdl-data-table__cell--non-numeric">Book Name</th>
+                            <th>Barcode</th>
+                            <th>Quantity</th>
+                        </tfoot>
+                        <tbody>
+                           {% for item in items %}
+                                <tr>
+                                    <td class=" mdl-data-table__cell--non-numeric"><a class="table-link" href="{% url 'item_detail' item.id %}">{{ item.title|capfirst }}</a></td>
+                                    <td>{{ item.barcode }}</td>
+                                    <td>{{ item.amount }}</td>
+                                </tr>                                
+                                {% endfor %}
+                       
+                           
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+            </div>
+
+        </main>
+        <footer class="footer mdl-mini-footer">
+            <div class="mdl-mini-footer--left-section">
+                <ul class="mdl-mini-footer--link-list">
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Privacy and Terms</a></li>
+                    <li><a href="#">User Agreement</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+{% endblock content %}

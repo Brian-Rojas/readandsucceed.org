@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title"> <a href="{% url 'index' %}" class="main-header">Add Book</a></span>
+            </div>
+        </header>
+        <main class="mdl-layout__content">
+            <div class="mld-grid page-max-width">
+                <div class="mdl-cell mdl-cell--12-col mdl-card">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Enter the following information</h2>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col mdl-shadow--2dp">
+                        <div class="form-input">
+                            {% if form.errors %}
+                                <p>Didn't include all fields. Please try again.</p>
+                            {% endif %}
+                            <form action="{% url 'add' %}" method="post">
+                                {% csrf_token %}
+                                <div class="mdl-textfield  mdl-cell--12-col mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" name="title" id="title">
+                                    <label class="mdl-textfield__label" for="title">Book Title</label>
+                                </div>
+                                <div class="mdl-textfield mdl-cell--12-col mdl-js-textfield mdl-textfield--floating-label ">
+                                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="amount" id="amount">
+                                    <label class="mdl-textfield__label" for="amount">Amount</label>
+                                    <span class="mdl-textfield__error">Input is not a number!</span>
+                                </div>
+                                <div class="mdl-textfield mdl-cell--12-col mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="barcode" id="barcode">
+                                    <label class="mdl-textfield__label" for="barcode">Barcode</label>
+                                    <span class="mdl-textfield__error">Input is not a number!</span>
+                                </div>
+                                <div class="mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <textarea class="mdl-textfield__input" type="text" rows="6" name="description" id="description"></textarea>
+                                    <label class="mdl-textfield__label" for="description">Description</label>
+                                </div>
+                                <button class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick=notification"()">Add Book</button>
+                                <div id="snackbar">Book Added!</div>
+
+                            </form>
+                            <!-- <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect " onclick=notification"()">Show Snackbar</button> -->
+                            <!-- <div id="snackbar">Book Added!</div> -->
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </main>
+        <footer class="footer mdl-mini-footer">
+            <div class="mdl-mini-footer--left-section">
+                <ul class="mdl-mini-footer--link-list">
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Privacy and Terms</a></li>
+                    <li><a href="#">User Agreement</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+</body>
+{% endblock content %}
