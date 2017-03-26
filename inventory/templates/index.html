@@ -23,17 +23,9 @@
                 <button class="mdh-toggle-search mdl-button mdl-js-button mdl-button--icon mdl-cell--hide-tablet mdl-cell--hide-desktop">
                     <i class="material-icons">search</i>
                 </button>
-                {% if user.is_authenticated %}
-                <div class="align-buttons">
-                    <span class="mdl-layout-title" id="user-color"> Hello {{ user.username }}</span> <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{% url 'logout' %}">Log Out</a>
-                </div>
-                <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--red" href="{% url 'logout' %}">Log Out</a> 
-                {% else %}
-                <div class="align-buttons">
-                    <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{% url 'login' %}">Log In</a>
-                </div>
-                {% endif %}
-
+                  {% if user.is_authenticated %}
+                <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--red" href="{% url 'logout' %}">Log Out</a> {% else %}
+                <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{% url 'login' %}">Log In</a> {% endif %}
 
             </div>
         </header>

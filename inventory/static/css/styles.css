@@ -1,4 +1,4 @@
-     a.main-header {
+a.main-header {
      text-decoration: none;
      font-family: 'Raleway';
      color: white;
@@ -37,8 +37,6 @@
  .align-button {
      float: right;
  }
-
-
  #snackbar {
      visibility: hidden;
      min-width: 250px;
@@ -99,13 +97,13 @@
      }
  }
  .mdh-expandable-search {
-     margin: 0 50px;
+     margin: 0 8px;
      align-items: center;
      justify-content: flex-end;
  }
  .mdh-expandable-search form {
-     max-width: 400px;
-     padding-top: 15px;
+     max-width: 300px;
+     padding-top: 12px;
  }
  .mdh-expandable-search,
  .mdh-expandable-search form,
@@ -137,7 +135,7 @@
      font-size: 16px;
      color: #FFFFFF;
      background-color: #78909C;
-     padding-left: 45px;
+     padding-left: 35px;
      height: 40px;
      line-height: 40px;
      border-radius: 5px 5px 5px 5px;
@@ -146,8 +144,15 @@
  }
  @media screen and (min-width: 851px) {
      .mdl-layout__header-row {
-         padding: 0 40px 0 40px;
+         padding: 0 20px 0 20px;
      }
  }
  .dataTables_wrapper .dataTables_filter {
      padding-bottom: 10px;
+ }
+ .mdl-layout__header-row.padding-title {
+     padding: 0 10px 0 10px;
+ }
+ .mdl-layout-title.user-color {
+     color: rgb(96, 125, 139);
+ }
