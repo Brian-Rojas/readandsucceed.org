@@ -1,5 +1,5 @@
-{% extends "base.html" %} {% block content %}
-
+{% extends "base.html" %}
+{% block content %}
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
@@ -24,10 +24,16 @@
                     <i class="material-icons">search</i>
                 </button>
                 {% if user.is_authenticated %}
+                <div class="align-buttons">
+                    <span class="mdl-layout-title" id="user-color"> Hello {{ user.username }}</span> <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{% url 'logout' %}">Log Out</a>
+                </div>
                 <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--red" href="{% url 'logout' %}">Log Out</a> 
                 {% else %}
-                <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{% url 'login' %}">Log In</a> 
+                <div class="align-buttons">
+                    <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{% url 'login' %}">Log In</a>
+                </div>
                 {% endif %}
+
 
             </div>
         </header>
@@ -37,7 +43,6 @@
             <span class="mdl-layout-title user-color"> Hello {{ user.username }}</span>
         </div>
         {% else %} {% endif %}
-
         <main class="mdl-layout__content">
             <div class="mld-grid page-max-width">
 
@@ -70,15 +75,15 @@
                             <th>Quantity</th>
                         </tfoot>
                         <tbody>
-                            {% for item in items %}
-                            <tr>
-                                <td class=" mdl-data-table__cell--non-numeric"><a class="table-link" href="{% url 'item_detail' item.id %}">{{ item.title|capfirst }}</a></td>
-                                <td>{{ item.barcode }}</td>
-                                <td>{{ item.amount }}</td>
-                            </tr>
-                            {% endfor %}
-
-
+                           {% for item in items %}
+                                <tr>
+                                    <td class=" mdl-data-table__cell--non-numeric"><a class="table-link" href="{% url 'item_detail' item.id %}">{{ item.title|capfirst }}</a></td>
+                                    <td>{{ item.barcode }}</td>
+                                    <td>{{ item.amount }}</td>
+                                </tr>                                
+                                {% endfor %}
+                       
+                           
                         </tbody>
                     </table>
 
