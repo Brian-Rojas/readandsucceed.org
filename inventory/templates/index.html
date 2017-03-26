@@ -24,13 +24,10 @@
                     <i class="material-icons">search</i>
                 </button>
                 {% if user.is_authenticated %}
-<<<<<<< HEAD
                 <div class="align-buttons">
                     <span class="mdl-layout-title" id="user-color"> Hello {{ user.username }}</span> <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{% url 'logout' %}">Log Out</a>
                 </div>
-=======
                 <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--red" href="{% url 'logout' %}">Log Out</a> 
->>>>>>> 579fad119a433c7cdc2a9934fa8f7e5787851393
                 {% else %}
                 <div class="align-buttons">
                     <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{% url 'login' %}">Log In</a>
@@ -40,16 +37,12 @@
 
             </div>
         </header>
-<<<<<<< HEAD
-=======
         {% if user.is_authenticated %}
         <div class="mdl-card__title">
             <div class="mdl-layout-spacer"></div>
             <span class="mdl-layout-title user-color"> Hello {{ user.username }}</span>
         </div>
         {% else %} {% endif %}
->>>>>>> 579fad119a433c7cdc2a9934fa8f7e5787851393
-
         <main class="mdl-layout__content">
             <div class="mld-grid page-max-width">
 
