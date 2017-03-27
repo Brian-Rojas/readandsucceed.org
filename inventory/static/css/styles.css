@@ -155,3 +155,14 @@ a.main-header {
  .mdl-layout-title.user-color {
      color: rgb(96, 125, 139);
  }
+.mdl-chip__contact.chip-size{
+    width: auto; 
+}
+.mdl-button.btn-size{    
+    padding-left: 5px;
+    padding-right: 8px;
+    font-size:12px;    
+}
+  h2.mdl-card__title-text.books-size{
+      font-size: 20px;
+  }

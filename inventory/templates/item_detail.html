@@ -6,6 +6,11 @@
             <div class="mdl-layout__header-row">
                 <span class="mdl-layout-title"> <a href="{% url 'index' %}" class="main-header">Book Information</a></span>
             </div>
+            <div class="mdl-layout-spacer"></div>
+                 {% if user.is_authenticated %}
+                <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--red" href="{% url 'logout' %}">Log Out</a> {% else %}
+                <a class="mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="{% url 'login' %}">Log In</a> {% endif %}
+            
         </header>
         <main class="mdl-layout__content">
             <div class="mld-grid page-max-width">
@@ -23,8 +28,8 @@
                             <span class=" mdl-chip--contact">                               
                           <span class="mdl-chip mdl-chip--contact">
                             {% if item.amount <= 10 %}|
-                                <span class="mdl-chip__contact  mdl-color--red mdl-color-text--white">{{ item.amount }}</span> {% else %}
-                            <span class="mdl-chip__contact  mdl-color--green mdl-color-text--white">{{ item.amount }}</span> {% endif %}
+                                <span class="mdl-chip__contact chip-size  mdl-color--red mdl-color-text--white">{{ item.amount }}</span> {% else %}
+                            <span class="mdl-chip__contact chip-size  mdl-color--green mdl-color-text--white">{{ item.amount }}</span> {% endif %}
                             <span class="mdl-chip__text">In Stock</span>
                         </div>
                         <div class="mdl-card__supporting-text ">
