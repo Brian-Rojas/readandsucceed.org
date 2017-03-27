@@ -103,6 +103,7 @@ a.main-header {
  }
  .mdh-expandable-search form {
      max-width: 300px;
+     padding-top: 12px;
  }
  .mdh-expandable-search,
  .mdh-expandable-search form,
@@ -155,9 +156,6 @@ a.main-header {
  .mdl-layout-title.user-color {
      color: rgb(96, 125, 139);
  }
-.mdl-chip__contact.chip-size{
-    width: auto; 
-}
 .mdl-button.btn-size{    
     padding-left: 5px;
     padding-right: 8px;
