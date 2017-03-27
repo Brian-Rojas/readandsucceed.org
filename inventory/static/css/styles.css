@@ -163,6 +163,6 @@ a.main-header {
   h2.mdl-card__title-text.books-size{
       font-size: 20px;
   }
-.mdl-chip__contact chip-size{
+.mdl-chip__contact.chip-size{
     width: auto;
 }
