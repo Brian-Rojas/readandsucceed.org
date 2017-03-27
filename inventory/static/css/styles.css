@@ -102,8 +102,7 @@ a.main-header {
      justify-content: flex-end;
  }
  .mdh-expandable-search form {
-     max-width: 300px;
-     padding-top: 12px;
+     max-width: 300px;     
  }
  .mdh-expandable-search,
  .mdh-expandable-search form,
@@ -164,3 +163,6 @@ a.main-header {
   h2.mdl-card__title-text.books-size{
       font-size: 20px;
   }
+.mdl-chip__contact chip-size{
+    width: auto;
+}
